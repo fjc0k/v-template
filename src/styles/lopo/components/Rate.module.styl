@@ -1,0 +1,17 @@
+@require '../settings';
+
+.rate {
+  reset: base;
+  display: inline-block;
+  font-size: $rate-font-size;
+  color: $rate-star-selected-color;
+  .star {
+    display: inline-block;
+    margin-right: $h-spacing-sm;
+    color: $rate-star-color;
+    transition: all .3s;
+    &.selected {
+      color: currentColor;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@require '../settings';
+
+.list-item {
+  reset: base;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  // 点击反馈
+  &.tappable {
+    &.active {
+      background-color: $fill-tap;
+    }
+  }
+
+  // 分隔线
+  &.long-divider {
+    &:not(:last-child) {
+      hairline(bottom);
+    }
+  }
+  &:not(.long-divider):not(.no-divider):not(:last-child) .body {
+    hairline(bottom);
+  }
+}
+
+// 图标
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  margin-left: $h-spacing-lg;
+}
+
+// 主内容
+.body {
+  reset: box-model;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  overflow: hidden;
+  margin-left: $h-spacing-lg;
+  padding: $h-spacing-md $h-spacing-lg $h-spacing-md 0;
+
+  // 左部内容
+  .left {
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: $font-size-caption;
+
+    // 标题
+    .title {
+      flex-basis: 100%;
+      overflow: hidden;
+    }
+
+    // 简介
+    .desc {
+      font-size: $font-size-base;
+      flex-basis: 100%;
+      overflow: hidden;
+      color: $color-text-caption;
+      line-height: 1.5;
+    }
+  }
+
+  // 内容区
+  .value {
+    // 以极大的 grow 和 shrink 值令其自适应
+    flex-grow: 2000;
+    flex-shrink: 2000;
+    overflow: hidden;
+    font-size: $font-size-caption;
+  }
+
+  // 其他信息
+  .extra {
+    font-size: $font-size-base;
+    color: $color-text-caption;
+    text-wrap: true;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  // 链接箭头
+  .chevron {
+    flex-shrink: 0;
+    font-size: $font-size-base;
+    color: $color-line-dark;
+  }
+}
+
+// 间隔
+.icon + .body, .left + .value, .value + .extra {
+  margin-left: $h-spacing-md;
+}

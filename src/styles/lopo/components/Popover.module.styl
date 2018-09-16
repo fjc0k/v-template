@@ -1,0 +1,84 @@
+@require '../settings';
+
+.popover {
+  reset: base;
+  position: absolute;
+  background-color: $fill-base;
+  border-radius: 3px;
+  padding: $v-spacing-md $h-spacing-md;
+  visibility: hidden;
+  pointer-events: none;
+  max-width: 90%;
+
+  // 显示时
+  &.visible {
+    z-index: $popover-z-index;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  // 定位
+  &[x-placement^=top] {
+    margin-bottom: $popover-arrow-size;
+    .arrow {
+      border-width: $popover-arrow-size $popover-arrow-size 0 $popover-arrow-size;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      bottom: - $popover-arrow-size;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  &[x-placement^=bottom] {
+    margin-top: $popover-arrow-size;
+    .arrow {
+      border-width: 0 $popover-arrow-size $popover-arrow-size $popover-arrow-size;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      top: - $popover-arrow-size;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  &[x-placement^=right] {
+    margin-left: $popover-arrow-size;
+    .arrow {
+      border-width: $popover-arrow-size $popover-arrow-size $popover-arrow-size 0;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      left: - $popover-arrow-size;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  &[x-placement^=left] {
+    margin-right: $popover-arrow-size;
+    .arrow {
+      border-width: $popover-arrow-size 0 $popover-arrow-size $popover-arrow-size;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      right: - $popover-arrow-size;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .message {
+    font-size: $font-size-base;
+    text-wrap: true;
+  }
+
+  .arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    color: $fill-base;
+    border-color: currentColor;
+    position: absolute;
+    margin: $popover-arrow-size;
+  }
+}

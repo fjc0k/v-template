@@ -1,0 +1,22 @@
+@require '../settings';
+
+.wrapper {
+  overflow: hidden;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  padding-left: 100%;
+  margin-left: -100%;
+  box-sizing: content-box;
+}
+
+.content {
+  display: inline-block;
+  white-space: nowrap;
+  box-sizing: content-box;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+}

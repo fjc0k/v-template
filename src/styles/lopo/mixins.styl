@@ -1,0 +1,221 @@
+@require './variables';
+
+// 字符串宽度溢出显示省略号
+ellipsis($line = 1) {
+  if $line == 1 {
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  } else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+// 字符串换行
+text-wrap() {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+// 样式重置
+reset($type) {
+  if $type == font {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    color: $color-text-base;
+  } else if $type == box-model {
+    box-sizing: border-box;
+    background-clip: padding-box;
+  } else if $type == base {
+    reset(font);
+    reset(box-model);
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    resize: none;
+    -webkit-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    line-height: 1;
+    vertical-align: middle;
+    background-color: transparent;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    user-select: none;
+  } else if $type == input {
+    reset(base);
+    -webkit-user-select: auto;
+    user-select: auto;
+    line-height: normal;
+    &::placeholder {
+      color: $color-text-placeholder;
+      -webkit-text-fill-color: $color-text-placeholder;
+    }
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// 禁用状态
+disabled() {
+  opacity: $opacity-disabled;
+  pointer-events: none;
+}
+
+// flex 行
+flex-row($justify = initial, $align = center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// flex 列
+flex-col($align = initial, $justify = space-between) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// flex 居中
+flex-center($type) {
+  display: ($type == inline ? inline-flex : flex);
+  align-items: center;
+  justify-content: center;
+}
+
+// 透明遮罩
+transparent-mask() {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+// 大小
+size($size) {
+  width: $size;
+  height: $size;
+}
+
+// 边线
+hairline($directions = all, $color = $color-line-light, $radius = 0, $type = solid) {
+  $directions = $directions == all ? (top right bottom left) : $directions;
+
+  position: relative;
+  border: none;
+  border-radius: $radius;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0 $type $color;
+    border-radius: $radius;
+    box-sizing: border-box;
+    pointer-events: none;
+    transform-origin: 0 0;
+    z-index: 1;
+    for $direction in $directions {
+      border-{$direction}-width: 1PX;
+    }
+  }
+  @media (min-resolution: 2dppx) {
+    &::before {
+      width: 200%;
+      height: 200%;
+      border-radius: $radius * 2;
+      transform: scale(0.5) translateZ(0px);
+    }
+  }
+  @media (min-resolution: 3dppx) {
+    &::before {
+      width: 300%;
+      height: 300%;
+      border-radius: $radius * 3;
+      transform: scale(0.3333) translateZ(0px);
+    }
+  }
+}
+
+hairline-color($color) {
+  &::before {
+    border-color: $color;
+  }
+}
+
+hairline-radius($radius) {
+  border-radius: $radius;
+  &::before {
+    border-radius: $radius;
+  }
+  @media (min-resolution: 2dppx) {
+    &::before {
+      border-radius: $radius * 2;
+    }
+  }
+  @media (min-resolution: 3dppx) {
+    &::before {
+      border-radius: $radius * 3;
+    }
+  }
+}
+
+hairline-style($style) {
+  &::before {
+    border-style: $style;
+  }
+}
+
+hairline-width($width, $directions = all) {
+  $directions = $directions == all ? (top right bottom left) : $directions;
+
+  &::before {
+    for $direction in $directions {
+      border-{$direction}-width: $width;
+    }
+  }
+}
+
+hairline-remove($directions = all) {
+  $directions = $directions == all ? (top right bottom left) : $directions;
+
+  &::before {
+    for $direction in $directions {
+      border-{$direction}: none;
+    }
+  }
+}
+
+// 隐藏
+hidden() {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}

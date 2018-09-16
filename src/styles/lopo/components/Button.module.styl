@@ -1,0 +1,124 @@
+@require '../settings';
+
+.wrapper {
+  display: block;
+  &.mini {
+    display: inline-block;
+    font-size: 0;
+  }
+}
+
+.button {
+  reset: input;
+  flex-center: true;
+  ellipsis: 1;
+  margin: auto;
+  padding: 0 $v-spacing-lg;
+
+  // 大小
+  height: $button-height;
+  font-size: $button-font-size;
+  width: 100%;
+  &.mini {
+    display: inline-flex;
+    height: $button-height--mini;
+    font-size: $button-font-size--mini;
+    width: auto;
+  }
+
+  // 形状
+  hairline(all, rgba(0, 0, 0, 0.2), $radius-md);
+  &.square {
+    hairline-radius(0);
+  }
+  &.round {
+    hairline-radius($button-height);
+  }
+  &.circle {
+    display: inline-flex;
+    padding: 0;
+    width: $button-height;
+    hairline-radius($button-height);
+    &.mini {
+      width: $button-height--mini;
+      hairline-radius($button-height--mini);
+    }
+  }
+
+  // 颜色
+  color: white;
+  &.active {
+    color: rgba(white, 75%);
+  }
+  &.primary {
+    background-color: $color-primary;
+    &.active {
+      background-color: rgba($color-primary, 75%);
+    }
+  }
+  &.warning {
+    background-color: $color-warning;
+    &.active {
+      background-color: rgba($color-warning, 75%);
+    }
+  }
+  &.danger {
+    background-color: $color-danger;
+    &.active {
+      background-color: rgba($color-danger, 75%);
+    }
+  }
+  &.default {
+    background-color: $fill-base;
+    color: $color-text-base;
+    hairline-color($color-line-light);
+    &.active {
+      background-color: $fill-tap;
+    }
+  }
+
+  // 朴素风格
+  &.plain {
+    background-color: transparent;
+    &.default {
+      color: $color-text-base;
+      hairline-color($color-text-base);
+      &.active {
+        background-color: rgba($color-text-base, 10%);
+      }
+    }
+    &.primary {
+      color: $color-primary;
+      hairline-color($color-primary);
+      &.active {
+        background-color: rgba($color-primary, 10%);
+      }
+    }
+    &.warning {
+      color: $color-warning;
+      hairline-color($color-warning);
+      &.active {
+        background-color: rgba($color-warning, 10%);
+      }
+    }
+    &.danger {
+      color: $color-danger;
+      hairline-color($color-danger);
+      &.active {
+        background-color: rgba($color-danger, 10%);
+      }
+    }
+  }
+
+  // 无边框
+  &.no-border {
+    hairline-remove(all);
+  }
+
+  // 禁用
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    transparent-mask: true;
+  }
+}

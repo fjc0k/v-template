@@ -1,0 +1,83 @@
+@require '../settings';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge {
+  reset: base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  white-space: nowrap;
+  font-size: $badge-font-size;
+  height: $badge-height;
+  min-width: $badge-height;
+  padding: 0 $badge-h-padding;
+
+  // 形状
+  .round & {
+    border-radius: $badge-height;
+  }
+  .flat & {
+    border-radius: $radius-sm;
+  }
+  .square & {
+    border-radius: 0;
+  }
+  .dot & {
+    size: $badge-dot-size;
+    min-width: auto;
+    border-radius: 100%;
+    padding: 0;
+  }
+
+  // 色彩
+  .default & {
+    background-color: $color-danger;
+  }
+  .primary & {
+    background-color: $color-primary;
+  }
+  .warning & {
+    background-color: $color-warning;
+  }
+
+  // 朴素
+  .plain & {
+    background-color: transparent;
+    hairline(all);
+    .round& {
+      hairline-radius($badge-height);
+    }
+    .flat& {
+      hairline-radius($radius-sm);
+    }
+    .square& {
+      hairline-radius(0);
+    }
+    .default& {
+      color: $color-danger;
+      hairline-color($color-danger);
+    }
+    .primary& {
+      color: $color-primary;
+      hairline-color($color-primary);
+    }
+    .warning& {
+      color: $color-warning;
+      hairline-color($color-warning);
+    }
+  }
+
+  // 角落
+  .corner & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate3d(50%, -50%, 0px);
+    z-index: 1;
+  }
+}

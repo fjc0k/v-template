@@ -1,0 +1,43 @@
+@require '../settings';
+
+.sheet {
+  width: 100%;
+  background: $fill-base;
+  .header {
+    reset: box-model;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 45px;
+    padding: $v-spacing-md $h-spacing-lg;
+    hairline(bottom);
+    .action {
+      font-size: $font-size-caption;
+      &.cancel {
+        color: $color-text-caption;
+      }
+      &.confirm {
+        color: $color-primary;
+      }
+    }
+    .message {
+      flex: 1;
+      text-align: center;
+      overflow: hidden;
+      margin: 0 $h-spacing-md;
+      .title {
+        font-size: $font-size-heading;
+        ellipsis: 1;
+        + .desc {
+          margin-top: $v-spacing-sm;
+        }
+      }
+      .desc {
+        font-size: $font-size-base;
+        color: $color-text-caption;
+        ellipsis: 1;
+      }
+    }
+  }
+}

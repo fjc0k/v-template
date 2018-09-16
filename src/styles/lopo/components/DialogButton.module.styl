@@ -1,0 +1,34 @@
+@require '../settings';
+
+.dialog-button {
+  reset: base;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  font-size: $font-size-heading;
+  hairline(top right);
+  &:last-child {
+    hairline-remove(right);
+  }
+  &.active {
+    background: $fill-tap;
+  }
+}
+
+.default {
+  color: $color-text-base;
+}
+
+.primary {
+  color: $color-primary;
+}
+
+.warning {
+  color: $color-warning;
+}
+
+.danger {
+  color: $color-danger;
+}

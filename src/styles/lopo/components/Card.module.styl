@@ -1,0 +1,26 @@
+@require '../settings';
+
+.card {
+  reset: base;
+  box-shadow: 0 1px 1px 1px rgba(black, .12);
+  border-radius: $radius-lg;
+  background-color: white;
+  margin: $h-spacing-md;
+  padding: $h-spacing-lg;
+  &.square {
+    border-radius: 0;
+  }
+}
+
+.title {
+  font-size: $font-size-heading;
+  margin: 0 0 $h-spacing-md 0;
+  padding: 0;
+}
+
+.content {
+  margin: 0;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $color-text-paragraph;
+}

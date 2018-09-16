@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": "@lopo/lopo",
+  "rules": {
+    "camelcase": "off"
+  },
+  "globals": {
+    "WeixinJSBridge": true
+  }
+}

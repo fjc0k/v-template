@@ -1,0 +1,33 @@
+@require '../settings';
+
+.dialog {
+  reset: base;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: $radius-md;
+  background: $fill-base;
+}
+
+.header {
+  font-size: $font-size-heading;
+  padding: $h-spacing-lg $v-spacing-xl;
+}
+
+.body {
+  line-height: 1.4;
+  font-size: $font-size-base;
+  color: $color-text-caption;
+  padding: $h-spacing-lg $v-spacing-xl;;
+  text-wrap: true;
+  .header + & {
+    padding-top: 0;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}

@@ -1,0 +1,33 @@
+@require '../settings';
+
+.counter {
+  reset: base;
+  display: inline-flex;
+  align-items: stretch;
+  height: $counter-height;
+  font-size: $font-size-base;
+  hairline(top bottom);
+}
+
+.input {
+  reset: input;
+  width: $counter-height * 2;
+  text-align: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $counter-height;
+  hairline(right left);
+  &:not(.disabled).active {
+    background: $fill-tap;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  background: rgba($fill-tap, 25%);
+  color: rgba($color-text-base, 40%);
+}

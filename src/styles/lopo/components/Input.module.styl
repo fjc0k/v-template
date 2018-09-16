@@ -1,0 +1,48 @@
+@require '../settings';
+
+$clearer-size = 17px;
+
+.holder {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  reset: input;
+  text-align: inherit;
+  min-height: 1.15em;
+  line-height: 1.15;
+  flex: 1;
+  width: 100%;
+  &:disabled {
+    opacity: 1;
+    -webkit-text-fill-color: inherit;
+    color: inherit;
+  }
+}
+
+// 清空图标
+.clearer {
+  reset: box-model;
+  position: relative;
+  margin-left: $h-spacing-sm;
+  size: $clearer-size;
+  background: $color-text-placeholder;
+  border-radius: $radius-circle;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 1px;
+    top: (($clearer-size - 10) / 2);
+    left: (($clearer-size - 1) / 2);
+    background-color: white;
+    z-index: 1;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}

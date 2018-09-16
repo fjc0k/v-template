@@ -1,0 +1,44 @@
+@require '../settings';
+
+.wrapper {
+  font-size: $font-size-base;
+  color: rgba($color-text-caption, 50%);
+}
+
+.divider {
+  reset: base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  &.full {
+    width: 100%;
+  }
+}
+
+.content {
+  color: $color-text-caption;
+  margin: 0 $h-spacing-sm;
+}
+
+.line {
+  flex: 1;
+  min-width: $h-spacing-md;
+  hairline(top, currentColor);
+  .left &:first-child {
+    flex: 0;
+  }
+  .right &:last-child {
+    flex: 0;
+  }
+  .solid & {
+    hairline-style(solid);
+  }
+  .dashed & {
+    hairline-style(dashed);
+  }
+  .dotted & {
+    hairline-style(dotted);
+  }
+}

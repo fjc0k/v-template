@@ -1,0 +1,20 @@
+@require '../settings';
+
+.tab-bar {
+  reset: base;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $tab-bar-height;
+  background: white;
+  hairline(top);
+  position: fixed;
+  z-index: $tab-bar-z-index;
+}
+
+.holder {
+  height: $tab-bar-height;
+}

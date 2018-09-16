@@ -1,0 +1,76 @@
+@require '../settings';
+
+.switch {
+  reset: base;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  color: $color-primary;
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.input {
+  reset: input;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  &:checked {
+    + .holder {
+      background: currentColor;
+      &:before {
+        transform: scale(0);
+      }
+      &:after {
+        transform: translateX($switch-width - $switch-height);
+      }
+    }
+  }
+}
+
+.holder {
+  reset: box-model;
+  position: relative;
+  display: block;
+  width: $switch-width;
+  height: $switch-height;
+  border-radius: $switch-height;
+  background: $color-line-light;
+  transition: all 300ms;
+  z-index: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 1.5px;
+    top: 1.5px;
+    width: ($switch-width - 3px);
+    height: ($switch-height - 3px);
+    border-radius: ($switch-height - 3px);
+    box-sizing: border-box;
+    background: $fill-base;
+    z-index: 1;
+    transition: all 200ms;
+    transform: scale(1);
+  }
+  &:after {
+    content: '';
+    height: ($switch-height - 3px);
+    width: ($switch-height - 3px);
+    border-radius: ($switch-height - 3px);
+    background: $fill-base;
+    position: absolute;
+    z-index: 2;
+    left: 1.5px;
+    top: 1.5px;
+    transform: translateX(0);
+    transition: all 200ms;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.21);
+  }
+}

@@ -1,0 +1,20 @@
+@require '../settings';
+
+.tab {
+  reset: box-model;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 $h-spacing-lg;
+  color: $color-text-caption;
+  font-size: $tabs-font-size;
+  hairline(bottom);
+}
+
+.active {
+  color: $color-primary;
+  hairline-color($color-primary);
+  hairline-width(2px, bottom);
+}

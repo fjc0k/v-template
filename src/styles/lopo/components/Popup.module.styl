@@ -1,0 +1,80 @@
+@require '../settings';
+
+.popup {
+  reset: base;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  background: rgba(black, 40%);
+  &.through {
+    pointer-events: none;
+  }
+  &.transparent {
+    background: rgba(white, 0);
+  }
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+  &-enter, &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active, &-leave-active {
+    transition: opacity .3s;
+  }
+}
+
+.top {
+  align-items: flex-start;
+  justify-content: center;
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  &-enter-active, &-leave-active {
+    transition: .3s ease;
+  }
+}
+
+.right {
+  align-items: center;
+  justify-content: flex-end;
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  &-enter-active, &-leave-active {
+    transition: .3s ease;
+  }
+}
+
+.bottom {
+  align-items: flex-end;
+  justify-content: center;
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  &-enter-active, &-leave-active {
+    transition: .3s ease;
+  }
+}
+
+.left {
+  align-items: center;
+  justify-content: flex-start;
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  &-enter-active, &-leave-active {
+    transition: .3s ease;
+  }
+}

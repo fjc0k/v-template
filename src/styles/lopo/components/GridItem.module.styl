@@ -1,0 +1,62 @@
+@require '../settings';
+
+.grid-item {
+  flex: 1;
+  position: relative;
+  hairline(right bottom);
+  &:last-child {
+    hairline-remove(right);
+  }
+  :global(.l-grid-group):last-child & {
+    hairline-remove(bottom);
+  }
+  &:not(.no-feedback).active {
+    background: $fill-tap;
+  }
+  &.no-vertical-divider {
+    hairline-remove(right);
+  }
+  &.no-horizontal-divider {
+    hairline-remove(bottom);
+  }
+}
+
+.content {
+  reset: box-model;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: $v-spacing-lg 0;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.message {
+  text-align: center;
+  padding: 0 $h-spacing-sm;
+  font-size: $font-size-caption-sm;
+  text-wrap: true;
+  .thumbnail + & {
+    margin-top: $v-spacing-md;
+  }
+}
+
+.square {
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+}

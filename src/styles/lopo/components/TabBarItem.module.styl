@@ -1,0 +1,35 @@
+@require '../settings';
+
+.tab-bar-item {
+  flex: 1;
+  reset: box-model;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: $color-text-caption;
+  &.active {
+    color: $color-primary;
+  }
+  :global {
+    .l-badge-corner .l-badge {
+      top: ($badge-height / 2) - 3;
+    }
+    .l-badge-corner.l-badge-dot .l-badge {
+      top: ($badge-dot-size / 2) - 3;
+    }
+  }
+}
+
+.icon {
+  size: $tab-bar-icon-size;
+  font-size: $tab-bar-icon-size;
+}
+
+.label {
+  font-size: $tab-bar-font-size;
+  &:not(:first-child) {
+    margin-top: $v-spacing-xs;
+  }
+}

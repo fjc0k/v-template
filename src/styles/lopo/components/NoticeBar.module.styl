@@ -1,0 +1,32 @@
+@require '../settings';
+
+.notice-bar {
+  reset: base;
+  display: flex;
+  align-items: center;
+  background-color: $notice-bar-bg-color;
+  color: $notice-bar-font-color;
+  font-size: $notice-bar-font-size;
+  height: $notice-bar-height;
+  padding: 0 $v-spacing-sm;
+}
+
+.left, .action {
+  flex-shrink: 0;
+}
+
+.left {
+  padding-right: $v-spacing-sm;
+}
+
+.action {
+  padding-left: $v-spacing-sm;
+}
+
+.icon {
+  font-size: ($notice-bar-font-size + 1);
+}
+
+.content {
+  flex-grow: 1;
+}

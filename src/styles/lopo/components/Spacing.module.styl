@@ -1,0 +1,34 @@
+@require '../settings';
+
+for $size in (xs sm md lg xl) {
+  .top-{$size} {
+    margin-top: lookup('$v-spacing-' + $size);
+  }
+  .bottom-{$size} {
+    margin-bottom: lookup('$v-spacing-' + $size);
+  }
+  .left-{$size} {
+    margin-left: lookup('$h-spacing-' + $size);
+  }
+  .right-{$size} {
+    margin-right: lookup('$h-spacing-' + $size);
+  }
+}
+
+.between-x {
+  &.first-child {
+    margin-left: 0;
+  }
+  &.last-child {
+    margin-right: 0;
+  }
+}
+
+.between-y {
+  &.first-child {
+    margin-top: 0;
+  }
+  &.last-child {
+    margin-bottom: 0;
+  }
+}

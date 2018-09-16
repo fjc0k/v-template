@@ -1,0 +1,44 @@
+@require '../settings';
+
+.image {
+  display: inline-block;
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+  &.square {
+    width: 100%;
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+  &.circle {
+    border-radius: $radius-circle;
+  }
+}
+
+.holder {
+  visibility: hidden;
+  max-width: 100%;
+}
+
+.source {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+  &.fill {
+    background-size: 100% 100%;
+  }
+  &.cover {
+    background-size: cover;
+  }
+  &.contain {
+    background-size: contain;
+  }
+}

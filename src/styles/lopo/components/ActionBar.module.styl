@@ -1,0 +1,23 @@
+@require '../settings';
+
+.holder {
+  height: $action-bar-height;
+}
+
+.action-bar {
+  reset: base;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: $action-bar-height;
+  background: white;
+  z-index: 10;
+  font-size: $font-size-caption;
+  hairline(top);
+  &.borderless {
+    hairline-remove(top);
+  }
+}

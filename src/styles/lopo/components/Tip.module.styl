@@ -1,0 +1,26 @@
+@require '../settings';
+
+.tip {
+  &:global(.l-popover) {
+    color: $fill-base;
+    background-color: $tip-bg-color;
+  }
+  :global(.l-popover-arrow) {
+    color: $tip-bg-color;
+  }
+  :global(.l-popover-message) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.close {
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  font-size: 1.15em;
+  color: rgba(white, 50%);
+  margin-left: $h-spacing-sm;
+}
+
