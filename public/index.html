@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>XXXXXX</title>
+    <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
+    <% if (NODE_ENV === 'development') { %>
+      <script src="http://localhost:8098"></script>
+    <% } %>
+    <script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
+    <script>
+      if (/__test__/.test(location.search + location.hash)) {
+        new VConsole()
+      }
+    </script>
   </head>
   <body>
     <noscript>

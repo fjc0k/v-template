@@ -1,16 +1,1 @@
-# ydxydemo
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
+# Vue 移动项目模板

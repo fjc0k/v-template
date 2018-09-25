@@ -5,6 +5,7 @@
     "camelcase": "off"
   },
   "globals": {
-    "WeixinJSBridge": true
+    "WeixinJSBridge": true,
+    "wx": true
   }
 }

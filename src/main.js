@@ -1,3 +1,4 @@
+require('promise.prototype.finally').shim() // 必须手动支持 finally
 import Vue from 'vue'
 import Lopo from 'lopo'
 import { sync } from 'vuex-router-sync'
